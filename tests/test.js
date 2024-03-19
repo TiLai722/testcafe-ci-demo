@@ -102,5 +102,5 @@ test('Filling a form', async t => {
     await t
         .wait(500)
         .click(page.submitButton)
-        .expect(page.results.innerText).contains('Bruce Wayner');
+        .expect(page.results.innerText).contains('Bruce Wayne');
 });

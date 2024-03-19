@@ -12,7 +12,7 @@ test('Text typing basics', async t => {
         .typeText(page.nameInput, 'Peter')                      // Type name
         .typeText(page.nameInput, 'Paker', { replace: true })   // Replace with last name
         .typeText(page.nameInput, 'r', { caretPos: 2 })         // Correct last name
-        .expect(page.nameInput.value).eql('Parkerr');            // Check result
+        .expect(page.nameInput.value).eql('Parker');            // Check result
 });
 
 
@@ -30,9 +30,9 @@ test('Dealing with text using keyboard', async t => {
         .typeText(page.nameInput, 'Peter Parker')           // Type name
         .click(page.nameInput, { caretPos: 5 })             // Move caret position
         .pressKey('backspace')                              // Erase a character
-        .expect(page.nameInput.value).eql('Pete Parkerr')    // Check result
+        .expect(page.nameInput.value).eql('Pete Parker')    // Check result
         .pressKey('home right . delete delete delete')      // Pick even shorter form for name
-        .expect(page.nameInput.value).eql('P. Parkerrr');     // Check result
+        .expect(page.nameInput.value).eql('P. Parker');     // Check result
 });
 
 
@@ -51,7 +51,7 @@ test('Dealing with text using selection', async t => {
         .typeText(page.nameInput, 'Test Cafe')
         .selectText(page.nameInput, 7, 1)
         .pressKey('delete')
-        .expect(page.nameInput.value).eql('Tefe');   // Check result
+        .expect(page.nameInput.value).eql('Tfe');   // Check result
 });
 
 
@@ -62,11 +62,11 @@ test('Handle native confirmation dialog', async t => {
 
     const dialogHistory = await t.getNativeDialogHistory();
 
-    await t.expect(dialogHistory[0].text).eql('Reset information before proceeding?.');
+    await t.expect(dialogHistory[0].text).eql('Reset information before proceeding?');
 
     await t
         .click(page.submitButton)
-        .expect(page.results.innerText).contains('Peter Parkerr');
+        .expect(page.results.innerText).contains('Peter Parker');
 });
 
 
@@ -74,7 +74,7 @@ test('Pick option from select', async t => {
     await t
         .click(page.interfaceSelect)
         .click(page.interfaceSelectOption.withText('Both'))
-        .expect(page.interfaceSelect.value).eql('Both0');
+        .expect(page.interfaceSelect.value).eql('Both');
 });
 
 

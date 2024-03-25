@@ -103,4 +103,13 @@ test('Filling a form', async t => {
         .wait(500)
         .click(page.submitButton)
         .expect(page.results.innerText).contains('Bruce Wayne');
+
+});
+
+test('test text ', async t => {
+    // Let's submit Test Text
+    await t
+        .wait(500)
+        .click(page.submitButton)
+        .expect(page.results.innerText).contains('Test Text!!!');
 });

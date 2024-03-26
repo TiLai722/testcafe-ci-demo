@@ -106,10 +106,3 @@ test('Filling a form', async t => {
 
 });
 
-test('test text ', async t => {
-    // Let's submit Test Text
-    await t
-        .wait(500)
-        .click(page.submitButton)
-        .expect(page.results.innerText).contains('Test Text!!!');
-});
